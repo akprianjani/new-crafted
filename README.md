@@ -1,6 +1,6 @@
-# New Crafted — Website Green Coffee Beans
+# New Crafted — Website Green Beans Kopi
 
-Website toko green coffee beans. Pesanan masuk lewat WhatsApp. Tanpa login, database, atau pembayaran online.
+Website toko green beans kopi. Pesanan masuk lewat WhatsApp. Tanpa login, database, atau pembayaran online.
 
 > **Data contoh:** semua produk (Contoh Lot A–E), harga, stok, nomor WhatsApp, dan Instagram adalah **contoh**. Ganti sebelum dipublikasikan.
 

@@ -1,5 +1,5 @@
 // Foto produk. Jika foto belum ada, tampil ilustrasi biji sebagai placeholder.
-const COLORS = ["#8a8f4d", "#7b8140", "#9aa05a", "#6f7539"];
+const COLORS = ["#DDD5C3", "#D3CAB5", "#E4DDCD", "#CBC1AA"];
 
 export function BeanArt({ seed = 1 }) {
   let s = seed * 9301;
@@ -9,7 +9,7 @@ export function BeanArt({ seed = 1 }) {
     return (
       <g key={i} transform={`translate(${x} ${y}) rotate(${r})`}>
         <ellipse rx="22" ry="14" fill={COLORS[i % 4]} />
-        <path d="M-20 0 Q-8 -5 0 0 T20 0" stroke="rgba(0,0,0,.28)" strokeWidth="2" fill="none" />
+        <path d="M-20 0 Q-8 -5 0 0 T20 0" stroke="rgba(6,17,62,.28)" strokeWidth="2" fill="none" />
       </g>
     );
   });

@@ -1,16 +1,13 @@
 /* =====================================================================
    FILE INI ADALAH "PUSAT DATA" TOKO. Hampir semua yang perlu Anda ganti ada di sini.
-
-   PENTING: semua data di bawah ini hanyalah CONTOH (Lot A–E).
-   Nama lot, harga, dan stok BUKAN data asli New Crafted.
-   Ganti semuanya, lalu ubah  usingSampleData  menjadi  false.
    ===================================================================== */
 
 export const SITE = {
   brand: "New Crafted Coffee",
-  whatsapp: "6281355246789",
-  instagram: "newcraftedcoffee",
-  usingSampleData: false,
+  whatsapp: "6281355246789",   // Format: 62 + nomor tanpa 0 di depan. Tanpa tanda + atau spasi.
+  instagram: "newcraftedcoffee",  // Tanpa @
+  usingSampleData: false,       // false = banner data contoh disembunyikan
+  heroImg: "",                  // foto hero beranda, contoh "/images/hero.jpg" (file ada di folder public/images). Kosong = panel brand navy.
   about:
     "Kami hadir untuk memenuhi kebutuhan roastery dan Coffee Shop Anda.",
   orderInfo:

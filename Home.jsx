@@ -1,8 +1,7 @@
 import { PRODUCTS, SITE } from "./config.js";
-import { BeanArt } from "./Photo.jsx";
 import ProductCard from "./ProductCard.jsx";
 import { uniq } from "./lib.js";
- 
+
 function Tiles({ field, param }) {
   return (
     <div className="origin-row">
@@ -15,7 +14,7 @@ function Tiles({ field, param }) {
     </div>
   );
 }
- 
+
 export default function Home() {
   const featured = PRODUCTS.filter((p) => p.featured);
   return (
@@ -25,7 +24,8 @@ export default function Home() {
           <div>
             <h1>Kopi Berkualitas, untuk Semua.</h1>
             <p className="lead">
-              New Crafted mengkurasi green bean kopi pilihan untuk bisnis roastery, coffee shop, hingga home roaster, agar siapa pun dapat mengeksplorasi karakter kopi dan menciptakan cita rasa terbaiknya sendiri.
+              New Crafted mengkurasi green bean kopi pilihan untuk roastery, coffee shop, dan home roaster,
+              agar siapa pun dapat mengeksplorasi karakter kopi dan menciptakan cita rasa terbaiknya sendiri.
             </p>
             <div className="cta">
               <a className="btn" href="#/katalog">Explore Green Beans</a>
@@ -33,8 +33,14 @@ export default function Home() {
             </div>
           </div>
           <div className="beans">
-            <BeanArt seed={7} />
-            <span className="cap">Placeholder — ganti dengan foto green bean asli</span>
+            {SITE.heroImg
+              ? <img src={SITE.heroImg} alt="Green bean kopi pilihan New Crafted Coffee" />
+              : (
+                <div className="beans-brand" role="img" aria-label={SITE.brand}>
+                  <span>{SITE.brand}</span>
+                  <small>Green Bean Kopi</small>
+                </div>
+              )}
           </div>
         </div>
       </section>
@@ -52,4 +58,3 @@ export default function Home() {
     </>
   );
 }
- 

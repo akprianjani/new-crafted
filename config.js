@@ -18,7 +18,7 @@ export const SITE = {
   wholesaleInfo: [
      "Pembelian minimal 1 Kg.",
      "Pembayaran: transfer penuh sebelum pengiriman.",
-     "Pembelian grosir mulai 30 kg per transaksi.".
+     "Pembelian grosir mulai 30 kg per transaksi."
   ]
 };
 

@@ -7,17 +7,18 @@
    ===================================================================== */
 
 export const SITE = {
-  brand: "New Crafted",
-  whatsapp: "6281234567890",   // GANTI. Format: 62 + nomor tanpa 0 di depan. Tanpa tanda + atau spasi.
-  instagram: "newcrafted.id",  // GANTI. Tanpa @
-  usingSampleData: true,       // ubah ke false setelah data produk asli terisi (menghilangkan banner contoh)
+  brand: "New Crafted Coffee",
+  whatsapp: "6281355246789",
+  instagram: "newcraftedcoffee",
+  usingSampleData: false,
   about:
-    "Isi bagian ini dengan cerita singkat New Crafted: siapa Anda, bagaimana lot dipilih, dan dari mana biji dikirim. Tuliskan hanya hal yang bisa dibuktikan.",
+    "Kami hadir untuk memenuhi kebutuhan roastery dan Coffee Shop Anda.",
   orderInfo:
-    "Stok, ongkir, dan pembayaran dikonfirmasi penjual lewat WhatsApp sebelum pesanan diproses.",
+    "Produk yang dapat dipilih berarti tersedia. Ongkir dan detail pembayaran akan diinformasikan saat checkout.",
   wholesaleInfo: [
-    "Harga bertingkat tersedia untuk beberapa lot (lihat halaman produk).",
-    "Isi informasi volume minimum, jadwal kirim, dan syarat pembelian grosir di sini."
+    "Pembelian minimal 1 kg.",
+    "Pembayaran: transfer penuh sebelum pengiriman.",
+    "Pembelian grosir mulai 30 kg per transaksi."
   ]
 };
 
@@ -38,50 +39,36 @@ export const SITE = {
    --------------------------------------------------------------------- */
 export const PRODUCTS = [
   {
-    id: "contoh-a", name: "Contoh Lot A",
-    origin: "Contoh Origin 1", region: "Contoh Region", farm: "", producer: "",
-    process: "Washed", variety: "Contoh Varietas 1", altitude: "",
-    notes: "", flavor: [], crop: "", moisture: "", density: "", screen: "", cupping: "",
-    status: "available", stockKg: 120, minKg: 5, sizes: [1, 5, 10],
-    tiers: [{ min: 1, price: 150000 }, { min: 30, price: 140000 }],
-    restock: "", img: "", featured: true, isNew: true
-  },
-  {
-    id: "contoh-b", name: "Contoh Lot B",
-    origin: "Contoh Origin 2", region: "Contoh Region", farm: "", producer: "",
-    process: "Natural", variety: "Contoh Varietas 2", altitude: "1400–1600 mdpl",
-    notes: "Contoh: buah kering, cokelat", flavor: ["fruity", "chocolate"],
+    id: "anaerobic-washed-mosto-double-fermentation",
+    name: "Anaerobic Washed Mosto Double Fermentation",
+    origin: "Indonesia", region: "Enrekang, Sulawesi Selatan (Pegunungan Latimojong)", farm: "", producer: "",
+    process: "Washed", variety: "100% Arabika Kalosi", altitude: "",
+    notes: "Contoh: buah kering, cokelat", flavor: [],
     crop: "", moisture: "", density: "", screen: "", cupping: "",
-    status: "limited", stockKg: 25, minKg: 1, sizes: [1, 5],
-    tiers: [{ min: 1, price: 185000 }],
-    restock: "", img: "", featured: true, isNew: true
+    status: "available", stockKg: 0, minKg: 1, sizes: [1],
+    tiers: [{ min: 1, price: 295000 }],
+    restock: "", img: "", featured: true
   },
   {
-    id: "contoh-c", name: "Contoh Lot C",
-    origin: "Contoh Origin 1", region: "Contoh Region 2", farm: "", producer: "",
-    process: "Honey", variety: "Contoh Varietas 1", altitude: "",
-    notes: "", flavor: [], crop: "", moisture: "", density: "", screen: "", cupping: "",
-    status: "preorder", stockKg: 0, minKg: 10, sizes: [5, 10],
-    tiers: [{ min: 1, price: 165000 }],
-    restock: "Estimasi tiba: isi tanggal", img: "", featured: true
-  },
-  {
-    id: "contoh-d", name: "Contoh Lot D",
-    origin: "Contoh Origin 3", region: "", farm: "", producer: "",
-    process: "Anaerobic", variety: "Contoh Varietas 3", altitude: "",
-    notes: "Contoh: floral, manis", flavor: ["floral", "sweet"],
+    id: "natural-anaerobic-slow-dry",
+    name: "Natural Anaerobic Slow Dry",
+    origin: "Indonesia", region: "Enrekang, Sulawesi Selatan (Pegunungan Latimojong)", farm: "", producer: "",
+    process: "Natural", variety: "100% Arabika Kalosi", altitude: "",
+    notes: "Contoh: buah kering, cokelat", flavor: [],
     crop: "", moisture: "", density: "", screen: "", cupping: "",
-    status: "available", stockKg: 60, minKg: 1, sizes: [1, 5],
-    tiers: [{ min: 1, price: 260000 }, { min: 20, price: 245000 }],
-    restock: "", img: "", isNew: true
+    status: "available", stockKg: 0, minKg: 1, sizes: [1],
+    tiers: [{ min: 1, price: 295000 }],
+    restock: "", img: "", featured: true
   },
   {
-    id: "contoh-e", name: "Contoh Lot E",
-    origin: "Contoh Origin 2", region: "Contoh Region", farm: "", producer: "",
-    process: "Washed", variety: "Contoh Varietas 2", altitude: "",
-    notes: "", flavor: [], crop: "", moisture: "", density: "", screen: "", cupping: "",
-    status: "soldout", stockKg: 0, minKg: 5, sizes: [5],
-    tiers: [{ min: 1, price: 140000 }],
-    restock: "Restock: isi info", img: ""
+    id: "infused",
+    name: "Infused",
+    origin: "Indonesia", region: "Enrekang, Sulawesi Selatan (Pegunungan Latimojong)", farm: "", producer: "",
+    process: "Washed atau Natural", variety: "100% Arabika Kalosi", altitude: "",
+    notes: "Contoh: buah kering, cokelat", flavor: [],
+    crop: "", moisture: "", density: "", screen: "", cupping: "",
+    status: "available", stockKg: 0, minKg: 1, sizes: [1],
+    tiers: [{ min: 1, price: 355000 }],
+    restock: "", img: "", featured: true
   }
 ];

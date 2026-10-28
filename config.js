@@ -7,17 +7,18 @@
    ===================================================================== */
 
 export const SITE = {
-  brand: "New Crafted",
-  whatsapp: "6281234567890",   // GANTI. Format: 62 + nomor tanpa 0 di depan. Tanpa tanda + atau spasi.
-  instagram: "newcrafted.id",  // GANTI. Tanpa @
-  usingSampleData: true,       // ubah ke false setelah data produk asli terisi (menghilangkan banner contoh)
+  brand: "New Crafted Coffee",
+  whatsapp: "6281355246789",   // GANTI. Format: 62 + nomor tanpa 0 di depan. Tanpa tanda + atau spasi.
+  instagram: "newcraftedcoffee",  // GANTI. Tanpa @
+  usingSampleData: false,       // ubah ke false setelah data produk asli terisi (menghilangkan banner contoh)
   about:
-    "Isi bagian ini dengan cerita singkat New Crafted: siapa Anda, bagaimana lot dipilih, dan dari mana biji dikirim. Tuliskan hanya hal yang bisa dibuktikan.",
+    "Green Beans dari dataran tinggi Enrekang, dipilih lot demi lot untuk memenuhi kebutuhan roastery dan coffee shop Anda.",
   orderInfo:
     "Stok, ongkir, dan pembayaran dikonfirmasi penjual lewat WhatsApp sebelum pesanan diproses.",
   wholesaleInfo: [
-    "Harga bertingkat tersedia untuk beberapa lot (lihat halaman produk).",
-    "Isi informasi volume minimum, jadwal kirim, dan syarat pembelian grosir di sini."
+     "Pembelian minimal 1 Kg.",
+     "Pembayaran: transfer penuh sebelum pengiriman.",
+     "Pembelian grosir mulai 30 kg per transaksi.".
   ]
 };
 
@@ -42,7 +43,7 @@ export const PRODUCTS = [
     origin: "Contoh Origin 1", region: "Contoh Region", farm: "", producer: "",
     process: "Washed", variety: "Contoh Varietas 1", altitude: "",
     notes: "", flavor: [], crop: "", moisture: "", density: "", screen: "", cupping: "",
-    status: "available", stockKg: 120, minKg: 5, sizes: [1, 5, 10],
+    status: "available", stock Kg: 120, minKg:5, sizes: [1, 5, 10],
     tiers: [{ min: 1, price: 150000 }, { min: 30, price: 140000 }],
     restock: "", img: "", featured: true, isNew: true
   },

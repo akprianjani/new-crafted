@@ -12,9 +12,9 @@ export const SITE = {
   instagram: "newcraftedcoffee",  // GANTI. Tanpa @
   usingSampleData: false,       // ubah ke false setelah data produk asli terisi (menghilangkan banner contoh)
   about:
-    "Green Beans dari dataran tinggi Enrekang, dipilih lot demi lot untuk memenuhi kebutuhan roastery dan coffee shop Anda.",
+    "Green Beans dari dataran tinggi Enrekang, dipilih lot demi lot untuk memenuhi kebutuhan roastery dan coffee shop Anda."
   orderInfo:
-    "Stok, ongkir, dan pembayaran dikonfirmasi penjual lewat WhatsApp sebelum pesanan diproses.",
+    "Stok, ongkir, dan pembayaran dikonfirmasi penjual lewat WhatsApp sebelum pesanan diproses."
   wholesaleInfo: [
      "Pembelian minimal 1 Kg.",
      "Pembayaran: transfer penuh sebelum pengiriman.",

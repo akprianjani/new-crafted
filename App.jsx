@@ -28,7 +28,7 @@ export default function App() {
 
   useEffect(() => {
     const title = path === "/katalog" ? "Katalog green beans" : path === "/grosir" ? "Grosir"
-      : id ? (PRODUCTS.find((p) => p.id === id)?.name || "Produk") : "Source Better Coffee";
+      : id ? (PRODUCTS.find((p) => p.id === id)?.name || "Produk") : "New Crafted Coffee";
     document.title = `${title} — ${SITE.brand}`;
   }, [path, id]);
 

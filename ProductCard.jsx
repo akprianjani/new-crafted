@@ -10,8 +10,8 @@ export default function ProductCard({ p }) {
       <div className="bd">
         <span className={`badge ${STATUS[s][1]}`}>{STATUS[s][0]}</span>
         <a className="t" href={`#/produk/${p.id}`}><h3>{p.name}</h3></a>
-        <div className="meta">{p.origin}{p.region ? " · " + p.region : ""}</div>
-        <div className="meta">{p.process}{p.variety ? " · " + p.variety : ""}{p.altitude ? " · " + p.altitude : ""}</div>
+        {(p.origin || p.region) && <div className="meta">{[p.origin, p.region].filter(Boolean).join(" · ")}</div>}
+        {(p.process || p.variety || p.altitude) && <div className="meta">{[p.process, p.variety, p.altitude].filter(Boolean).join(" · ")}</div>}
         {p.notes && <div className="meta">Notes: {p.notes}</div>}
         <div className="price">{rp(basePrice(p))}/kg</div>
         <div className="meta">Min. {p.minKg} kg · Stok: {stockText(p)}</div>

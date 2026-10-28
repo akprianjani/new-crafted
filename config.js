@@ -39,7 +39,7 @@ export const SITE = {
    --------------------------------------------------------------------- */
 export const PRODUCTS = [
   {
-    id: "contoh-a", name: "Contoh Lot A",
+    id: "Annaerobic Wash", name: "Contoh Lot A",
     origin: "Contoh Origin 1", region: "Contoh Region", farm: "", producer: "",
     process: "Washed", variety: "Contoh Varietas 1", altitude: "",
     notes: "", flavor: [], crop: "", moisture: "", density: "", screen: "", cupping: "",

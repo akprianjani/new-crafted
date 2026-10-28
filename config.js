@@ -13,12 +13,12 @@ export const SITE = {
   usingSampleData: false,       // ubah ke false setelah data produk asli terisi (menghilangkan banner contoh)
   about:
     "Green Beans dari dataran tinggi Enrekang, dipilih lot demi lot untuk memenuhi kebutuhan roastery dan coffee shop Anda.",
-  orderInfo:
-    "Produk yang dapat dipilih berarti tersedia. Ongkir dan detail pembayaran akan diinformasikan saat checkout.",
-  wholesaleInfo: [
-     "Pembelian minimal 1 Kg.",
-     "Pembayaran: transfer penuh sebelum pengiriman.",
-     "Pembelian grosir mulai 30 kg per transaksi."
+  orderInfo: "Produk yang bisa dipilih berarti stok tersedia. Ongkir dan metode pembayaran akan diinformasikan saat checkout.",
+  wholesaleInfo: 
+     [
+    "Pembelian minimal 1 kg.",
+    "Pembayaran: transfer penuh sebelum pengiriman.",
+    "Pembelian grosir mulai 30 kg per transaksi."
   ]
 };
 
@@ -39,13 +39,15 @@ export const SITE = {
    --------------------------------------------------------------------- */
 export const PRODUCTS = [
   {
-    id: "Annaerobic Wash", name: "Contoh Lot A",
-    origin: "Contoh Origin 1", region: "Contoh Region", farm: "", producer: "",
-    process: "Washed", variety: "Contoh Varietas 1", altitude: "",
-    notes: "", flavor: [], crop: "", moisture: "", density: "", screen: "", cupping: "",
-    status: "available", stock Kg: 120, minKg:5, sizes: [1, 5, 10],
-    tiers: [{ min: 1, price: 150000 }, { min: 30, price: 140000 }],
-    restock: "", img: "", featured: true, isNew: true
+   id: "anaerobic-washed-mosto-double-fermentation",
+  name: "Anaerobic Washed Mosto Double Fermentation",
+  origin: "", region: "", farm: "", producer: "",
+  process: "Anaerobic Washed Mosto Double Fermentation", variety: "", altitude: "",
+  notes: "", flavor: [],
+  crop: "", moisture: "", density: "", screen: "", cupping: "",
+  status: "available", stockKg: 0, minKg: 1, sizes: [1],
+  tiers: [{ min: 1, price: 265000 }],
+  restock: "", img: "", featured: true, isNew: true
   },
   {
     id: "contoh-b", name: "Contoh Lot B",

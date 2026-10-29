@@ -20,7 +20,9 @@ function Select({ id, label, value, onChange, options }) {
 }
 
 export default function Catalog({ query }) {
-  const [f, setF] = useState({ ...EMPTY, origin: query.get("origin") || "", process: query.get("process") || "" });
+  const start = { ...EMPTY, origin: query.get("origin") || "", process: query.get("process") || "" };
+  const [f, setF] = useState(start);
+  const [open, setOpen] = useState(Boolean(start.origin || start.process));
   const set = (k) => (v) => setF((x) => ({ ...x, [k]: v }));
   const flavors = [...new Set(PRODUCTS.flatMap((p) => p.flavor || []))].sort();
 
@@ -37,32 +39,35 @@ export default function Catalog({ query }) {
 
   return (
     <section><div className="wrap">
-      <h1 style={{ fontSize: "2.4rem" }}>Katalog green beans</h1>
-      <div className="cat">
-        <form className="filters" onSubmit={(e) => e.preventDefault()} aria-label="Filter produk">
-          <div><label htmlFor="q">Cari</label>
-            <input id="q" type="search" placeholder="Nama, origin, notes" value={f.q} onChange={(e) => set("q")(e.target.value)} /></div>
-          <Select id="origin" label="Origin" value={f.origin} onChange={set("origin")} options={uniq("origin")} />
-          <Select id="process" label="Process" value={f.process} onChange={set("process")} options={uniq("process")} />
-          <Select id="variety" label="Varietas" value={f.variety} onChange={set("variety")} options={uniq("variety")} />
-          <Select id="flavor" label="Karakter rasa" value={f.flavor} onChange={set("flavor")} options={flavors} />
-          <Select id="stock" label="Ketersediaan" value={f.stock} onChange={set("stock")}
-            options={Object.entries(STATUS).map(([k, v]) => [k, v[0]])} />
-          <div><label htmlFor="max">Harga maks. per kg (Rp)</label>
-            <input id="max" type="number" min="0" step="10000" value={f.max} onChange={(e) => set("max")(e.target.value)} /></div>
-          <div><label htmlFor="sort">Urutkan harga</label>
+      <h1 className="h1s">Katalog <em>green beans.</em></h1>
+      <form className="toolbar" onSubmit={(e) => e.preventDefault()} aria-label="Cari dan filter produk">
+        <div className="tb-main">
+          <div><label className="sr" htmlFor="q">Cari</label>
+            <input id="q" type="search" placeholder="Cari nama, origin, atau notes" value={f.q} onChange={(e) => set("q")(e.target.value)} /></div>
+          <div><label className="sr" htmlFor="sort">Urutkan harga</label>
             <select id="sort" value={f.sort} onChange={(e) => set("sort")(e.target.value)}>
-              <option value="">Default</option><option value="asc">Terendah</option><option value="desc">Tertinggi</option>
+              <option value="">Urutkan: Default</option><option value="asc">Harga terendah</option><option value="desc">Harga tertinggi</option>
             </select></div>
-          <button className="btn alt" type="button" onClick={() => setF(EMPTY)}>Reset filter</button>
-        </form>
-        <div>
-          <p className="meta" aria-live="polite">{list.length} produk ditemukan</p>
-          <div className="grid">
-            {list.length ? list.map((p) => <ProductCard key={p.id} p={p} />)
-              : <p>Tidak ada produk yang cocok. Ubah atau reset filter.</p>}
-          </div>
         </div>
+        <details className="fmore" open={open} onToggle={(e) => setOpen(e.currentTarget.open)}>
+          <summary>Filter</summary>
+          <div className="fgrid">
+            <Select id="origin" label="Origin" value={f.origin} onChange={set("origin")} options={uniq("origin")} />
+            <Select id="process" label="Process" value={f.process} onChange={set("process")} options={uniq("process")} />
+            <Select id="variety" label="Varietas" value={f.variety} onChange={set("variety")} options={uniq("variety")} />
+            <Select id="flavor" label="Karakter rasa" value={f.flavor} onChange={set("flavor")} options={flavors} />
+            <Select id="stock" label="Ketersediaan" value={f.stock} onChange={set("stock")}
+              options={Object.entries(STATUS).map(([k, v]) => [k, v[0]])} />
+            <div><label htmlFor="max">Harga maks. per kg (Rp)</label>
+              <input id="max" type="number" min="0" step="10000" value={f.max} onChange={(e) => set("max")(e.target.value)} /></div>
+            <button className="btn alt" type="button" onClick={() => setF(EMPTY)}>Reset filter</button>
+          </div>
+        </details>
+      </form>
+      <p className="meta" aria-live="polite">{list.length} produk ditemukan</p>
+      <div className="grid" style={{ marginTop: 16 }}>
+        {list.length ? list.map((p) => <ProductCard key={p.id} p={p} />)
+          : <p>Tidak ada produk yang cocok. Ubah atau reset filter.</p>}
       </div>
     </div></section>
   );

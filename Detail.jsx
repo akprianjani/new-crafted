@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useCart } from "./cart.jsx";
 import { PRODUCTS } from "./config.js";
 import Photo from "./Photo.jsx";
 import { STATUS, getStatus, basePrice, unitPrice, rp, stockText, waLink } from "./lib.js";
@@ -8,6 +9,7 @@ export default function Detail({ id }) {
   const [size, setSize] = useState(p ? p.sizes[0] : 1);
   const [packs, setPacks] = useState(p ? Math.max(1, Math.ceil(p.minKg / p.sizes[0])) : 1);
   const [note, setNote] = useState("");
+  const { add } = useCart();
 
   if (!p) return <section><div className="wrap"><h2>Produk tidak ditemukan</h2><a className="btn" href="#/katalog">Ke katalog</a></div></section>;
 
@@ -40,7 +42,7 @@ Mohon informasi stok aktual, ongkir, dan cara pembayaran.`;
         <div className="ph"><Photo product={p} seed={PRODUCTS.indexOf(p) + 2} /></div>
         <div>
           <span className={`badge ${STATUS[s][1]}`}>{STATUS[s][0]}</span>
-          <h1 style={{ fontSize: "2.2rem", marginTop: 8 }}>{p.name}</h1>
+          <h1 className="dh1">{p.name}</h1>
           <div className="price">{rp(basePrice(p))}/kg</div>
           <dl>
             {rows.map((r) => <div key={r[0]} style={{ display: "contents" }}><dt>{r[0]}</dt><dd>{r[1]}</dd></div>)}
@@ -53,29 +55,29 @@ Mohon informasi stok aktual, ongkir, dan cara pembayaran.`;
               <tbody>{p.tiers.map((t) => <tr key={t.min}><td>{t.min}+</td><td>{rp(t.price)}</td></tr>)}</tbody></table>
           </>)}
           <p className="note">Data teknis hanya ditampilkan jika sudah diverifikasi penjual.</p>
+          <div className="order" style={{ marginTop: 28 }}>
+            <h2 style={{ fontSize: "1.3rem" }}>Pesan</h2>
+            {sold ? (
+              <p className="err">Produk ini sold out dan tidak bisa dipesan.{p.restock ? " " + p.restock : ""}</p>
+            ) : (<>
+              <div><span className="lbl">Ukuran kemasan</span>
+                <div className="chips">{p.sizes.map((z) => (
+                  <button key={z} type="button" className="chip" aria-pressed={z === size} onClick={() => setSize(z)}>{z} kg</button>))}</div></div>
+              <div><label htmlFor="packs">Jumlah kemasan</label>
+                <input id="packs" type="number" min="1" value={packs}
+                  onChange={(e) => setPacks(Math.max(1, parseInt(e.target.value) || 1))} /></div>
+              <div><label htmlFor="note">Catatan pesanan</label>
+                <textarea id="note" value={note} onChange={(e) => setNote(e.target.value)} /></div>
+              <div>Kuantitas: <b>{qty} kg ({packs} × {size} kg)</b> · Harga: <b>{rp(unit)}</b>/kg</div>
+              <div className="sub">Subtotal {rp(subtotal)}</div>
+              <div className="err" role="alert">{problem}</div>
+              <button className="btn block" type="button" disabled={!!problem} onClick={() => add(p, size, packs)}>Tambah ke keranjang</button>
+          <a className="btn alt block" href={problem ? undefined : waLink(message)} target="_blank" rel="noopener noreferrer"
+                aria-disabled={!!problem} disabled={!!problem} onClick={(e) => problem && e.preventDefault()}>Order via WhatsApp</a>
+              <p className="note">Subtotal adalah estimasi. Stok, ongkir, dan pembayaran dikonfirmasi penjual; belum ada pesanan atau pembayaran sebelum itu.</p>
+            </>)}
+          </div>
         </div>
-      </div>
-
-      <div className="order" style={{ maxWidth: 560, marginTop: 28 }}>
-        <h2 style={{ fontSize: "1.3rem" }}>Pesan</h2>
-        {sold ? (
-          <p className="err">Produk ini sold out dan tidak bisa dipesan.{p.restock ? " " + p.restock : ""}</p>
-        ) : (<>
-          <div><span className="lbl">Ukuran kemasan</span>
-            <div className="chips">{p.sizes.map((z) => (
-              <button key={z} type="button" className="chip" aria-pressed={z === size} onClick={() => setSize(z)}>{z} kg</button>))}</div></div>
-          <div><label htmlFor="packs">Jumlah kemasan</label>
-            <input id="packs" type="number" min="1" value={packs}
-              onChange={(e) => setPacks(Math.max(1, parseInt(e.target.value) || 1))} /></div>
-          <div><label htmlFor="note">Catatan pesanan</label>
-            <textarea id="note" value={note} onChange={(e) => setNote(e.target.value)} /></div>
-          <div>Kuantitas: <b>{qty} kg ({packs} × {size} kg)</b> · Harga: <b>{rp(unit)}</b>/kg</div>
-          <div className="sub">Subtotal {rp(subtotal)}</div>
-          <div className="err" role="alert">{problem}</div>
-          <a className="btn" href={problem ? undefined : waLink(message)} target="_blank" rel="noopener noreferrer"
-            aria-disabled={!!problem} disabled={!!problem} onClick={(e) => problem && e.preventDefault()}>Order via WhatsApp</a>
-          <p className="note">Subtotal adalah estimasi. Stok, ongkir, dan pembayaran dikonfirmasi penjual; belum ada pesanan atau pembayaran sebelum itu.</p>
-        </>)}
       </div>
     </div></section>
   );
